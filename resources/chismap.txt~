@@ -1,0 +1,23 @@
+CHI SQUARE MAP
+
+Calculates the fitting parameters for a range of x values and y values.
+
+Offset Start x = the starting value of tx
+Offset End x = the ending value of tx
+Step x =  the step to take in tx
+
+Offset Start y = the starting value of ty
+Offset End y = the ending value of ty
+Step y =  the step to take in ty
+
+It calculates Chi Square for each set of the initial guess of the parameters given each offset in tx and ty:
+
+beta
+alpha
+dtx
+dty
+tz
+
+It plots a Chi Square map with all the values of Chi Square for each iteration. It plots the minimum value of Chi Square and the calculated one.
+
+

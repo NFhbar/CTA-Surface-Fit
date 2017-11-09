@@ -1,0 +1,5 @@
+ANALYSIS TYPE
+
+Selects the type of analysis to be perfomed to the data to recover the transformation paramters.
+
+See "doc.pdf" for more information

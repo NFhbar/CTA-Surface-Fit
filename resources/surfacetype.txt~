@@ -1,0 +1,26 @@
+SURFACE TYPE
+
+Selects the type of surface to use when performing the algorithm to recover the parameters.
+
+Parametric Equations:
+
+x = F*SQRT(tau)Cos(phi)
+y = F*SQRT(tau)Sin(phi)
+z = F*f(tau)
+
+where:
+F = focal length
+tau = x^2 + y^2
+
+If Parabola:
+f(tau)       = (1./4.)*tau_n;
+D[f(tau)]    = (1./4.);
+DD[f(tau)]   = 0.0000;
+
+If Mirror:
+double sqrttau = sqrt(1. - tau_n);
+double oneplussqrttau = 1. + sqrttau;
+f(tau)     = (1./486.)*tau_n/(oneplussqrttau)/(oneplussqrttau)/(oneplussqrttau)*(47. + 141.*sqrttau + (1. - tau_n)*(171. + 73.*sqrttau));
+D[f(tau)]  = (32.*(-1. + sqrttau) + tau_n*(-24. + sqrttau*(40. + 24.*tau_n)) + 73.*tau_n*tau_n)/(486.*tau_n*tau_n*tau_n);
+DD[f(tau)] = (2.*(-9.*(1. + sqrttau)) + (5. + sqrttau)*tau_n)/(81.*oneplussqrttau*oneplussqrttau*oneplussqrttau*oneplussqrttau*oneplussqrttau*sqrttau);
+

@@ -1,0 +1,9 @@
+DATA TYPE
+
+Selects the type of data to be analyzed.
+
+If "Simulated":
+Prints numerical comparison of actual transformation values and calculated transformation values.
+
+If "Measured":
+Prints only the calculated transformation values.

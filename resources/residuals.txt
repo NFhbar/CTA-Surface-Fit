@@ -1,0 +1,30 @@
+RESIDUALS
+
+It opens/calculates the residuals between the calculated surface and the actual surface.
+
+Calculate:
+It calculates the residuals using the calculated parameters
+
+ for (int i = 0; i<=NumberofPoints - 1; i++)
+        {
+            //transform measured data with calculated parameters
+            data.row(i) = (Ry*Rx*data.row(i).t() + translation).t();
+
+            //calculate z' with f(tau)
+            double tau; tau       = (1./(parameters[5]*parameters[5]))*(data(i,0)*data(i,0) + data(i,1)*data(i,1));
+            double sqrttau        = sqrt(1. - tau);
+            double oneplussqrttau = 1. + sqrttau;
+            double ftau           = (1./486.)*tau/(oneplussqrttau)/(oneplussqrttau)/(oneplussqrttau)*(47. + 141.*sqrttau + (1. - tau)*(171. + 73.*sqrttau));
+            double zprime         = parameters[5]*ftau;
+
+            //replace z in tdata with new z'
+            data(i,2) = data(i,2) - zprime;
+
+        }
+
+Open:
+It open a .txt file with the residuals in the form
+
+x y z
+
+data separated by empty spaces. 

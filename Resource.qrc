@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/Surface">
+        <file>resources/surface.txt</file>
+        <file>resources/error.txt</file>
+        <file>resources/units.txt</file>
+        <file>resources/grid.txt</file>
+        <file>resources/transformation.txt</file>
+        <file>resources/opendata.txt</file>
+        <file>resources/datatype.txt</file>
+        <file>resources/surfacetype.txt</file>
+        <file>resources/analysistype.txt</file>
+        <file>resources/initialguess.txt</file>
+        <file>resources/chismap.txt</file>
+        <file>resources/residuals.txt</file>
+        <file>resources/radii.txt</file>
+        <file>resources/magnitude.txt</file>
+        <file>resources/amplitude.txt</file>
+    </qresource>
+</RCC>

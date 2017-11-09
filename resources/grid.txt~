@@ -1,0 +1,50 @@
+GRID
+
+Selects the parameters to generate the grid.
+
+Start x = starting point in x
+End x   = ending point in x
+Step x  = step to take in x direction
+Start y = starting point in y
+End y   = ending point in y
+Step y  = step to take in y direction
+
+Total number of points in x is calculated as: 
+#x = (End x - Start x)/Step x
+
+Total number of points in y is calculated as: 
+#y = (End y - Start y)/Step y
+
+Data is generated as:
+
+for (int i = 0; i <= #x; i++)
+            {
+                    for (int j = 0; j <= #y; j++)
+                    {
+                        x[0] = Start x + (i * Step x);										
+                        y[1] = Start y + (j * Step y);										 
+
+                        dz = (gsl_ran_gaussian (rng,ds));							
+
+                        z[2] = SURFACE TYPE + dz;				
+
+                        w = w + 1;
+
+                        Data.row(w-1) = (Rx*Ry*(r - translation)).t();
+                        ModelData.row(w-1) = r.t();
+                    }
+            }
+
+SURFACE TYPE: depends on the selected surface. See "Surface Type".
+
+dz = Error selected. See "Error in z-axis".
+
+Data = matrix to keep transformed data. See "Parameters of Transformation".
+
+Rx = rotation matrix in x
+Ry = rotation matrix in y
+translation = [tx,ty,tz]. translation vector.
+
+ModelData = matrix to keep untransformed data.
+
+w = keeps track of the row to allocate in matrix.

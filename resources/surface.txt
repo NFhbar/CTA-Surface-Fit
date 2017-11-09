@@ -1,0 +1,21 @@
+SURFACE TYPE
+
+Places data in matrix form:
+
+|x  y   z|
+|x1 y1 z1|
+|x2 y2 z2|
+|.. .. ..|
+
+If Parabola:
+x = xi
+y = yi
+z = 1/4(xi^2+yi^2) + Error
+
+If Mirror:
+x = xi
+y = yi
+tau = xi^2 + yi^2
+sqrttau= sqrt(1. - tau)
+oneplussqrttau = 1. + sqrttau
+z = (1./486.)*tau/(oneplussqrttau)/(oneplussqrttau)/(oneplussqrttau)*(47. + 141.*sqrttau + (1. - tau)*(171. + 73.*sqrttau)) + Error;

@@ -1,0 +1,4 @@
+VALUE OF RADII
+
+Select the value of the radii for the mode decomposition.
+The values are taken from cta-sct-segmentation.pdf section 3.2, table 1.

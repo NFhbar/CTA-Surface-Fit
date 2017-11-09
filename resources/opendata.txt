@@ -1,0 +1,14 @@
+LOAD DATA
+
+Loads a .txt file with data in the following format:
+
+2.3 4.3 5.6
+2.1 4.5 5.3
+...
+..
+.
+
+Where the columns are [x,y,z].
+Data has to be separated by a space.
+File can't have any other carachters.
+Sometimes, if the file has an extra empty line at the end of the file, the program will crash. Remove the extra empty line if necessary.

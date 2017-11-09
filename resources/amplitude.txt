@@ -1,0 +1,3 @@
+AMPLITUDES RANGE
+
+It prints a table with the minimum value and the maximum value for each M plot.

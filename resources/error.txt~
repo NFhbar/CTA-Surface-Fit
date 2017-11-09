@@ -1,0 +1,12 @@
+Error in z-axis.
+
+It includes an error in the z coordinate. 
+
+Uses GSL Randon Number Generator with a Gaussian:
+    gsl_rng *rng;
+    rng = gsl_rng_alloc (gsl_rng_mt19937);
+    gsl_rng_set(rng, time(NULL));
+    double dz = (gsl_ran_gaussian (rng,SIGMA));
+
+SIGMA is selected by the user. Zero is equivalent to selecting no error.
+

@@ -1,0 +1,28 @@
+TRANSFORMATION
+
+Selects the parameters of the transformation that is to be applied to the data.
+
+beta(radians) = angle for rotation in y axis:
+    Rinvy << cos(-beta)  << 0 << sin(-beta) << endr
+       << 0 	      << 1 << 0 	 << endr
+       << -sin(-beta) << 0 << cos(-beta) << endr;
+
+alpha(radians) = angle for rotation in x axis:
+    Rinvx << 1 << 0           << 0            << endr
+       << 0 << cos(-alpha) << -sin(-alpha) << endr
+       << 0 << sin(-alpha) <<  cos(-alpha) << endr;
+
+tx = translation in x
+ty = translation in y
+tz = translation in z
+
+The transformation applied to the data is the inverse of:
+S = Ry*Rx*data + t See "Recover Parameters"
+
+SInv = Rinvx*Rinvy*(data - t) 
+
+Inverse(R(x)) = R(-x)
+
+The generated data is then transformed by the selected parameters.
+
+

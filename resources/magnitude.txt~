@@ -1,0 +1,77 @@
+MAGNITUDE PLOTS
+
+Plots the Magnitude K over M plot, or the Magnitude Plot.
+
+Uses the loaded/calculated residuals to decompose the surface into its radial and angular modes:
+
+ChiSquare = [dz(rj,phij) - SUM_k*SUM*m*(Amk/sqrt(rj))*EXP(i2Pi*k*x + i2Pi*m*y)]^2r*dr*dphi
+
+where:
+
+dz(rj,phij) = residuals (either calculated or loaded) in cylindrical coordinates
+SUM_k = sum over k
+SUM_m = sum over m
+k = radial mode
+m = angular mode
+x = rj - rmin/rmax + rmin
+y = phij/delta
+Amk = amplitude constant 
+delta = 2Pi/16
+
+The cylindrical coordinates are calculated as:
+for(int i = 0; i<=J-1; i++)
+        {
+            CylindricalData(i,0) = sqrt( dz(i,0)*dz(i,0) + dz(i,1)*dz(i,1) );
+            CylindricalData(i,2) = atan2( dz(i,1),dz(i,0) );
+        }
+where:
+dz = residuals
+CylindricalData(i,0) = rj
+CylindricalData(i,2) = phij
+
+It then finds the magnitude constant by solving (numerically) for:
+dChiSquare/dAmk = 0
+
+This returns:
+
+Amk = (rmax + rmin)*(1/J)*SUM_J*(dz(rj,phij)/sqrt(j))*EXP(-i2Pi*k*x - i2Pi*m*y)]
+
+The input parameters are:
+
+Span of M = the number of angular modes to calculate, goes from -M to M
+Span of K = the number of radial modes to calculate, goes from -K to K
+Plot Modes of M = the number of angular modes to plot for the Magnitude K over M plot
+Plot Title = the title for the selected plot
+
+Types of Plots
+
+Magnitude K over M:
+This plots Amk*Amk(complex conjugate) over the Span of M. The first plot from the top is m = 0, where the y-axis = m(0) and the x axis runs over Amk*Amk(k). Then the plots go down as m = m+1.
+
+Magnitude Plot:
+This plots k over m over Amk*Amk, where the x-axis= m, y-axis=k, and z-axis=Amk*Amk
+
+Usually let M=3, K=150, and Plot Modes of M = 3.
+
+For more information see ErrorModes.pdf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
